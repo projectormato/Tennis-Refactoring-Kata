@@ -34,17 +34,7 @@ public class TennisGame1 implements TennisGame {
     }
 
     private String getScoreElse() {
-        StringBuilder result = new StringBuilder();
-        int tempScore;
-        for (int i = 1; i < 3; i++) {
-            if (i == 1) tempScore = m_score1;
-            else {
-                result.append("-");
-                tempScore = m_score2;
-            }
-            result.append(convertScoreIntToString(tempScore));
-        }
-        return result.toString();
+        return convertScoreIntToString(m_score1) + "-" + convertScoreIntToString(m_score2);
     }
 
     private String convertScoreIntToString(int tempScore) {
