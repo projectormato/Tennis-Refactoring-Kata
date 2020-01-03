@@ -26,8 +26,7 @@ public class TennisGame1 implements TennisGame {
         if (m_score1 == m_score2) {
             score = getScoreNormal();
         } else if (m_score1 >= 4 || m_score2 >= 4) {
-            int minusResult = m_score1 - m_score2;
-            score = getScoreOver(minusResult);
+            score = getScoreOver();
         } else {
             score = getScoreElse();
         }
@@ -61,7 +60,8 @@ public class TennisGame1 implements TennisGame {
         return result.toString();
     }
 
-    private String getScoreOver(int minusResult) {
+    private String getScoreOver() {
+        int minusResult = m_score1 - m_score2;
         String result;
         if (minusResult == 1) result = "Advantage " + this.player1Name;
         else if (minusResult == -1) result = "Advantage " + this.player2Name;
