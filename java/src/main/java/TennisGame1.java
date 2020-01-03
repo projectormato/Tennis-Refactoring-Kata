@@ -42,27 +42,28 @@ public class TennisGame1 implements TennisGame {
                 result.append("-");
                 tempScore = m_score2;
             }
-            switch (tempScore) {
-                case 0:
-                    result.append("Love");
-                    break;
-                case 1:
-                    result.append("Fifteen");
-                    break;
-                case 2:
-                    result.append("Thirty");
-                    break;
-                case 3:
-                    result.append("Forty");
-                    break;
-            }
+            result.append(convertScoreIntToString(tempScore));
         }
         return result.toString();
     }
 
+    private String convertScoreIntToString(int tempScore) {
+        switch (tempScore) {
+            case 0:
+                return "Love";
+            case 1:
+                return "Fifteen";
+            case 2:
+                return "Thirty";
+            case 3:
+                return "Forty";
+        }
+        return "";
+    }
+
     private String getScoreOver() {
-        int minusResult = m_score1 - m_score2;
         String result;
+        int minusResult = m_score1 - m_score2;
         if (minusResult == 1) result = "Advantage " + this.player1Name;
         else if (minusResult == -1) result = "Advantage " + this.player2Name;
         else if (minusResult >= 2) result = "Win for " + this.player1Name;
