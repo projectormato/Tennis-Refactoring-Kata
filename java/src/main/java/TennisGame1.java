@@ -52,13 +52,11 @@ public class TennisGame1 implements TennisGame {
     }
 
     private String getScoreOver() {
-        String result;
         int minusResult = m_score1 - m_score2;
-        if (minusResult == 1) result = "Advantage " + this.player1Name;
-        else if (minusResult == -1) result = "Advantage " + this.player2Name;
-        else if (minusResult >= 2) result = "Win for " + this.player1Name;
-        else result = "Win for " + this.player2Name;
-        return result;
+        if (minusResult == 1) return "Advantage " + this.player1Name;
+        else if (minusResult == -1) return "Advantage " + this.player2Name;
+        else if (minusResult >= 2) return "Win for " + this.player1Name;
+        else return "Win for " + this.player2Name;
     }
 
     private String getScoreNormal() {
