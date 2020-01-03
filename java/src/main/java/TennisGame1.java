@@ -1,8 +1,10 @@
 
 public class TennisGame1 implements TennisGame {
 
+    // これ消せない...？
     private int m_score1 = 0;
     private int m_score2 = 0;
+
     private String player1Name;
     private String player2Name;
 
