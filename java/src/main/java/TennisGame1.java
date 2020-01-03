@@ -45,11 +45,15 @@ public class TennisGame1 implements TennisGame {
     }
 
     private String getScoreAdvantageOrWin() {
-        int minusResult = m_score1 - m_score2;
-        if (minusResult == 1) return "Advantage " + this.player1Name;
-        else if (minusResult == -1) return "Advantage " + this.player2Name;
-        else if (minusResult >= 2) return "Win for " + this.player1Name;
-        else return "Win for " + this.player2Name;
+        return getAdvantageOrWin() + getAdvantagePlayer();
+    }
+
+    private String getAdvantagePlayer() {
+        return m_score1 - m_score2 >= 1 ? this.player1Name : this.player2Name;
+    }
+
+    private String getAdvantageOrWin() {
+        return Math.abs(m_score1 - m_score2) > 1 ? "Win for " : "Advantage ";
     }
 
     private String getScoreNormal() {
