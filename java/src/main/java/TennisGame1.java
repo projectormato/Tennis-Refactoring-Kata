@@ -24,16 +24,16 @@ public class TennisGame1 implements TennisGame {
     public String getScore() {
         String score;
         if (m_score1 == m_score2) {
-            score = getScoreNormal();
+            score = getScoreTie();
         } else if (m_score1 >= 4 || m_score2 >= 4) {
-            score = getScoreOver();
+            score = getScoreAdvantageOrWin();
         } else {
-            score = getScoreElse();
+            score = getScoreNormal();
         }
         return score;
     }
 
-    private String getScoreElse() {
+    private String getScoreNormal() {
         return convertScoreIntToString(m_score1) + "-" + convertScoreIntToString(m_score2);
     }
 
@@ -51,7 +51,7 @@ public class TennisGame1 implements TennisGame {
         return "";
     }
 
-    private String getScoreOver() {
+    private String getScoreAdvantageOrWin() {
         int minusResult = m_score1 - m_score2;
         if (minusResult == 1) return "Advantage " + this.player1Name;
         else if (minusResult == -1) return "Advantage " + this.player2Name;
@@ -59,7 +59,7 @@ public class TennisGame1 implements TennisGame {
         else return "Win for " + this.player2Name;
     }
 
-    private String getScoreNormal() {
+    private String getScoreTie() {
         switch (m_score1) {
             case 0:
                 return "Love-All";
