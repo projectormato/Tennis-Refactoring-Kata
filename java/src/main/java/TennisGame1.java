@@ -22,7 +22,7 @@ public class TennisGame1 implements TennisGame {
     }
 
     public String getScore() {
-        StringBuilder score;
+        String score;
         if (m_score1 == m_score2) {
             score = getScoreNormal();
         } else if (m_score1 >= 4 || m_score2 >= 4) {
@@ -31,10 +31,10 @@ public class TennisGame1 implements TennisGame {
         } else {
             score = getScoreElse();
         }
-        return score.toString();
+        return score;
     }
 
-    private StringBuilder getScoreElse() {
+    private String getScoreElse() {
         StringBuilder score = new StringBuilder();
         int tempScore;
         for (int i = 1; i < 3; i++) {
@@ -58,32 +58,32 @@ public class TennisGame1 implements TennisGame {
                     break;
             }
         }
+        return score.toString();
+    }
+
+    private String getScoreOver(int minusResult) {
+        String score;
+        if (minusResult == 1) score = "Advantage " + this.player1Name;
+        else if (minusResult == -1) score = "Advantage " + this.player2Name;
+        else if (minusResult >= 2) score = "Win for " + this.player1Name;
+        else score = "Win for " + this.player2Name;
         return score;
     }
 
-    private StringBuilder getScoreOver(int minusResult) {
-        StringBuilder score;
-        if (minusResult == 1) score = new StringBuilder("Advantage " + this.player1Name);
-        else if (minusResult == -1) score = new StringBuilder("Advantage " + this.player2Name);
-        else if (minusResult >= 2) score = new StringBuilder("Win for " + this.player1Name);
-        else score = new StringBuilder("Win for " + this.player2Name);
-        return score;
-    }
-
-    private StringBuilder getScoreNormal() {
-        StringBuilder score;
+    private String getScoreNormal() {
+        String score;
         switch (m_score1) {
             case 0:
-                score = new StringBuilder("Love-All");
+                score = "Love-All";
                 break;
             case 1:
-                score = new StringBuilder("Fifteen-All");
+                score = "Fifteen-All";
                 break;
             case 2:
-                score = new StringBuilder("Thirty-All");
+                score = "Thirty-All";
                 break;
             default:
-                score = new StringBuilder("Deuce");
+                score = "Deuce";
                 break;
 
         }
