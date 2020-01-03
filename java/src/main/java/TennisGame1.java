@@ -35,58 +35,57 @@ public class TennisGame1 implements TennisGame {
     }
 
     private String getScoreElse() {
-        StringBuilder score = new StringBuilder();
+        StringBuilder result = new StringBuilder();
         int tempScore;
         for (int i = 1; i < 3; i++) {
             if (i == 1) tempScore = m_score1;
             else {
-                score.append("-");
+                result.append("-");
                 tempScore = m_score2;
             }
             switch (tempScore) {
                 case 0:
-                    score.append("Love");
+                    result.append("Love");
                     break;
                 case 1:
-                    score.append("Fifteen");
+                    result.append("Fifteen");
                     break;
                 case 2:
-                    score.append("Thirty");
+                    result.append("Thirty");
                     break;
                 case 3:
-                    score.append("Forty");
+                    result.append("Forty");
                     break;
             }
         }
-        return score.toString();
+        return result.toString();
     }
 
     private String getScoreOver(int minusResult) {
-        String score;
-        if (minusResult == 1) score = "Advantage " + this.player1Name;
-        else if (minusResult == -1) score = "Advantage " + this.player2Name;
-        else if (minusResult >= 2) score = "Win for " + this.player1Name;
-        else score = "Win for " + this.player2Name;
-        return score;
+        String result;
+        if (minusResult == 1) result = "Advantage " + this.player1Name;
+        else if (minusResult == -1) result = "Advantage " + this.player2Name;
+        else if (minusResult >= 2) result = "Win for " + this.player1Name;
+        else result = "Win for " + this.player2Name;
+        return result;
     }
 
     private String getScoreNormal() {
-        String score;
+        String result;
         switch (m_score1) {
             case 0:
-                score = "Love-All";
+                result = "Love-All";
                 break;
             case 1:
-                score = "Fifteen-All";
+                result = "Fifteen-All";
                 break;
             case 2:
-                score = "Thirty-All";
+                result = "Thirty-All";
                 break;
             default:
-                score = "Deuce";
+                result = "Deuce";
                 break;
-
         }
-        return score;
+        return result;
     }
 }
