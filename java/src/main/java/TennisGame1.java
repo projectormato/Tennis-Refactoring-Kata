@@ -22,21 +22,7 @@ public class TennisGame1 implements TennisGame {
         StringBuilder score = new StringBuilder();
         int tempScore = 0;
         if (m_score1 == m_score2) {
-            switch (m_score1) {
-                case 0:
-                    score = new StringBuilder("Love-All");
-                    break;
-                case 1:
-                    score = new StringBuilder("Fifteen-All");
-                    break;
-                case 2:
-                    score = new StringBuilder("Thirty-All");
-                    break;
-                default:
-                    score = new StringBuilder("Deuce");
-                    break;
-
-            }
+            score = getScoreNormal();
         } else if (m_score1 >= 4 || m_score2 >= 4) {
             int minusResult = m_score1 - m_score2;
             if (minusResult == 1) score = new StringBuilder("Advantage " + this.player1Name);
@@ -67,5 +53,25 @@ public class TennisGame1 implements TennisGame {
             }
         }
         return score.toString();
+    }
+
+    private StringBuilder getScoreNormal() {
+        StringBuilder score;
+        switch (m_score1) {
+            case 0:
+                score = new StringBuilder("Love-All");
+                break;
+            case 1:
+                score = new StringBuilder("Fifteen-All");
+                break;
+            case 2:
+                score = new StringBuilder("Thirty-All");
+                break;
+            default:
+                score = new StringBuilder("Deuce");
+                break;
+
+        }
+        return score;
     }
 }
