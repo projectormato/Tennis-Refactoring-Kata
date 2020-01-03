@@ -14,13 +14,13 @@ public class TennisGame1 implements TennisGame {
     public void wonPoint(String playerName) {
         if (playerName.equals(this.player1Name))
             m_score1 += 1;
-        else
+        else if (playerName.equals(this.player2Name)) {
             m_score2 += 1;
+        }
     }
 
     public String getScore() {
         StringBuilder score = new StringBuilder();
-        int tempScore = 0;
         if (m_score1 == m_score2) {
             score = getScoreNormal();
         } else if (m_score1 >= 4 || m_score2 >= 4) {
