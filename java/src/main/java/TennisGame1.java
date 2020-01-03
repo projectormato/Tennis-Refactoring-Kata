@@ -62,21 +62,15 @@ public class TennisGame1 implements TennisGame {
     }
 
     private String getScoreNormal() {
-        String result;
         switch (m_score1) {
             case 0:
-                result = "Love-All";
-                break;
+                return "Love-All";
             case 1:
-                result = "Fifteen-All";
-                break;
+                return "Fifteen-All";
             case 2:
-                result = "Thirty-All";
-                break;
+                return "Thirty-All";
             default:
-                result = "Deuce";
-                break;
+                return "Deuce";
         }
-        return result;
     }
 }
