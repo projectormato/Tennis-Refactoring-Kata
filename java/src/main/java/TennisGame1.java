@@ -22,19 +22,20 @@ public class TennisGame1 implements TennisGame {
     }
 
     public String getScore() {
-        StringBuilder score = new StringBuilder();
+        StringBuilder score;
         if (m_score1 == m_score2) {
             score = getScoreNormal();
         } else if (m_score1 >= 4 || m_score2 >= 4) {
             int minusResult = m_score1 - m_score2;
             score = getScoreOver(minusResult);
         } else {
-            getScoreElse(score);
+            score = getScoreElse();
         }
         return score.toString();
     }
 
-    private void getScoreElse(StringBuilder score) {
+    private StringBuilder getScoreElse() {
+        StringBuilder score = new StringBuilder();
         int tempScore;
         for (int i = 1; i < 3; i++) {
             if (i == 1) tempScore = m_score1;
@@ -57,6 +58,7 @@ public class TennisGame1 implements TennisGame {
                     break;
             }
         }
+        return score;
     }
 
     private StringBuilder getScoreOver(int minusResult) {
