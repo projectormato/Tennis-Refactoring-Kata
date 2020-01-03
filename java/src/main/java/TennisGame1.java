@@ -31,6 +31,27 @@ public class TennisGame1 implements TennisGame {
         }
     }
 
+    private String getScoreTie() {
+        switch (m_score1) {
+            case 0:
+                return "Love-All";
+            case 1:
+                return "Fifteen-All";
+            case 2:
+                return "Thirty-All";
+            default:
+                return "Deuce";
+        }
+    }
+
+    private String getScoreAdvantageOrWin() {
+        int minusResult = m_score1 - m_score2;
+        if (minusResult == 1) return "Advantage " + this.player1Name;
+        else if (minusResult == -1) return "Advantage " + this.player2Name;
+        else if (minusResult >= 2) return "Win for " + this.player1Name;
+        else return "Win for " + this.player2Name;
+    }
+
     private String getScoreNormal() {
         return convertScoreIntToString(m_score1) + "-" + convertScoreIntToString(m_score2);
     }
@@ -47,26 +68,5 @@ public class TennisGame1 implements TennisGame {
                 return "Forty";
         }
         return "";
-    }
-
-    private String getScoreAdvantageOrWin() {
-        int minusResult = m_score1 - m_score2;
-        if (minusResult == 1) return "Advantage " + this.player1Name;
-        else if (minusResult == -1) return "Advantage " + this.player2Name;
-        else if (minusResult >= 2) return "Win for " + this.player1Name;
-        else return "Win for " + this.player2Name;
-    }
-
-    private String getScoreTie() {
-        switch (m_score1) {
-            case 0:
-                return "Love-All";
-            case 1:
-                return "Fifteen-All";
-            case 2:
-                return "Thirty-All";
-            default:
-                return "Deuce";
-        }
     }
 }
