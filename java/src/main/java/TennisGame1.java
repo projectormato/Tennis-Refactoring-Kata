@@ -27,29 +27,34 @@ public class TennisGame1 implements TennisGame {
             int minusResult = m_score1 - m_score2;
             score = getScoreOver(minusResult);
         } else {
-            for (int i = 1; i < 3; i++) {
-                if (i == 1) tempScore = m_score1;
-                else {
-                    score.append("-");
-                    tempScore = m_score2;
-                }
-                switch (tempScore) {
-                    case 0:
-                        score.append("Love");
-                        break;
-                    case 1:
-                        score.append("Fifteen");
-                        break;
-                    case 2:
-                        score.append("Thirty");
-                        break;
-                    case 3:
-                        score.append("Forty");
-                        break;
-                }
-            }
+            getScoreElse(score);
         }
         return score.toString();
+    }
+
+    private void getScoreElse(StringBuilder score) {
+        int tempScore;
+        for (int i = 1; i < 3; i++) {
+            if (i == 1) tempScore = m_score1;
+            else {
+                score.append("-");
+                tempScore = m_score2;
+            }
+            switch (tempScore) {
+                case 0:
+                    score.append("Love");
+                    break;
+                case 1:
+                    score.append("Fifteen");
+                    break;
+                case 2:
+                    score.append("Thirty");
+                    break;
+                case 3:
+                    score.append("Forty");
+                    break;
+            }
+        }
     }
 
     private StringBuilder getScoreOver(int minusResult) {
