@@ -8,6 +8,8 @@ public class TennisGame1 implements TennisGame {
     private String player1Name;
     private String player2Name;
 
+    private String[] scoreIntToStringList = {"Love", "Fifteen", "Thirty", "Forty"};
+
     public TennisGame1(String player1Name, String player2Name) {
         this.player1Name = player1Name;
         this.player2Name = player2Name;
@@ -61,16 +63,6 @@ public class TennisGame1 implements TennisGame {
     }
 
     private String convertScoreIntToString(int tempScore) {
-        switch (tempScore) {
-            case 0:
-                return "Love";
-            case 1:
-                return "Fifteen";
-            case 2:
-                return "Thirty";
-            case 3:
-                return "Forty";
-        }
-        return "";
+        return this.scoreIntToStringList[tempScore];
     }
 }
