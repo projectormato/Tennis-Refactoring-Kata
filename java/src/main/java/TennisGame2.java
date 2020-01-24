@@ -90,16 +90,12 @@ public class TennisGame2 implements TennisGame {
         return score;
     }
 
-    public void setP1Score(int number) {
-        for (int i = 0; i < number; i++) {
-            P1Score();
-        }
+    public void setP1Score(int score) {
+        P1point = score;
     }
 
-    public void setP2Score(int number) {
-        for (int i = 0; i < number; i++) {
-            P2Score();
-        }
+    public void setP2Score(int score) {
+        P2point = score;
     }
 
     public void P1Score() {
