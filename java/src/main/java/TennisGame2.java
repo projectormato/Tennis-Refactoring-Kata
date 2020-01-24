@@ -13,7 +13,6 @@ public class TennisGame2 implements TennisGame {
     }
 
     public String getScore() {
-        String score = "";
         if (p1Point == p2Point) {
             return tie();
         }
@@ -23,7 +22,7 @@ public class TennisGame2 implements TennisGame {
         if (p2Point >= 4 && p1Point >= 0 && (p2Point - p1Point) >= 2) {
             return "Win for " + player2Name;
         }
-        
+
         if (p1Point > p2Point && p2Point >= 3) {
             return "Advantage " + player1Name;
         }
@@ -42,7 +41,7 @@ public class TennisGame2 implements TennisGame {
                 p1Res = "Forty";
 
             p2Res = "Love";
-            score = p1Res + "-" + p2Res;
+            return p1Res + "-" + p2Res;
         }
         if (p2Point > 0 && p1Point == 0) {
             if (p2Point == 1)
@@ -53,7 +52,7 @@ public class TennisGame2 implements TennisGame {
                 p2Res = "Forty";
 
             p1Res = "Love";
-            score = p1Res + "-" + p2Res;
+            return p1Res + "-" + p2Res;
         }
 
         if (p1Point > p2Point && p1Point < 4) {
@@ -65,7 +64,7 @@ public class TennisGame2 implements TennisGame {
                 p2Res = "Fifteen";
             if (p2Point == 2)
                 p2Res = "Thirty";
-            score = p1Res + "-" + p2Res;
+            return p1Res + "-" + p2Res;
         }
         if (p2Point > p1Point && p2Point < 4) {
             if (p2Point == 2)
@@ -76,10 +75,10 @@ public class TennisGame2 implements TennisGame {
                 p1Res = "Fifteen";
             if (p1Point == 2)
                 p1Res = "Thirty";
-            score = p1Res + "-" + p2Res;
+            return p1Res + "-" + p2Res;
         }
 
-        return score;
+        return "";
     }
 
     private String tie() {
