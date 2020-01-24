@@ -32,26 +32,23 @@ public class TennisGame2 implements TennisGame {
             return "Advantage " + player2Name;
         }
 
-        if (p1Point > 0 && p2Point == 0) {
+        if ((p1Point > 0 && p2Point == 0) || (p2Point > 0 && p1Point == 0)) {
+            if (p1Point == 0)
+                p1Res = "Love";
             if (p1Point == 1)
                 p1Res = "Fifteen";
             if (p1Point == 2)
                 p1Res = "Thirty";
             if (p1Point == 3)
                 p1Res = "Forty";
-
-            p2Res = "Love";
-            return p1Res + "-" + p2Res;
-        }
-        if (p2Point > 0 && p1Point == 0) {
+            if (p2Point == 0)
+                p2Res = "Love";
             if (p2Point == 1)
                 p2Res = "Fifteen";
             if (p2Point == 2)
                 p2Res = "Thirty";
             if (p2Point == 3)
                 p2Res = "Forty";
-
-            p1Res = "Love";
             return p1Res + "-" + p2Res;
         }
 
