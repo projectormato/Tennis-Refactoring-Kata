@@ -77,8 +77,8 @@ public class TennisTest {
     }
 
     public void checkAllScores2(TennisGame2 game2) {
-        game2.SetP1Score(this.player1Score);
-        game2.SetP2Score(this.player2Score);
+        game2.setP1Score(this.player1Score);
+        game2.setP2Score(this.player2Score);
         assertEquals(this.expectedScore, game2.getScore());
     }
 

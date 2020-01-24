@@ -90,13 +90,13 @@ public class TennisGame2 implements TennisGame {
         return score;
     }
 
-    public void SetP1Score(int number) {
+    public void setP1Score(int number) {
         for (int i = 0; i < number; i++) {
             P1Score();
         }
     }
 
-    public void SetP2Score(int number) {
+    public void setP2Score(int number) {
         for (int i = 0; i < number; i++) {
             P2Score();
         }
@@ -111,9 +111,5 @@ public class TennisGame2 implements TennisGame {
     }
 
     public void wonPoint(String player) {
-        if (player.equals(player1Name))
-            P1Score();
-        else
-            P2Score();
     }
 }
