@@ -32,34 +32,7 @@ public class TennisGame2 implements TennisGame {
             return "Advantage " + player2Name;
         }
 
-        if ((p1Point > 0 && p2Point == 0) || (p2Point > 0 && p1Point == 0)) {
-            return convetScoreIntToString(p1Point) + "-" + convetScoreIntToString(p2Point);
-        }
-
-        if (p1Point > p2Point && p1Point < 4) {
-            if (p1Point == 2)
-                p1Res = "Thirty";
-            if (p1Point == 3)
-                p1Res = "Forty";
-            if (p2Point == 1)
-                p2Res = "Fifteen";
-            if (p2Point == 2)
-                p2Res = "Thirty";
-            return p1Res + "-" + p2Res;
-        }
-        if (p2Point > p1Point && p2Point < 4) {
-            if (p2Point == 2)
-                p2Res = "Thirty";
-            if (p2Point == 3)
-                p2Res = "Forty";
-            if (p1Point == 1)
-                p1Res = "Fifteen";
-            if (p1Point == 2)
-                p1Res = "Thirty";
-            return p1Res + "-" + p2Res;
-        }
-
-        return "";
+        return convetScoreIntToString(p1Point) + "-" + convetScoreIntToString(p2Point);
     }
 
     private String convetScoreIntToString(int p1Point) {
