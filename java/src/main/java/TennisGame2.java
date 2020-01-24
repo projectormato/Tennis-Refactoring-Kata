@@ -17,6 +17,21 @@ public class TennisGame2 implements TennisGame {
         if (p1Point == p2Point) {
             return tie();
         }
+        if (p1Point >= 4 && p2Point >= 0 && (p1Point - p2Point) >= 2) {
+            return "Win for " + player1Name;
+        }
+        if (p2Point >= 4 && p1Point >= 0 && (p2Point - p1Point) >= 2) {
+            return "Win for " + player2Name;
+        }
+        
+        if (p1Point > p2Point && p2Point >= 3) {
+            return "Advantage " + player1Name;
+        }
+
+        if (p2Point > p1Point && p1Point >= 3) {
+            return "Advantage " + player2Name;
+        }
+
 
         if (p1Point > 0 && p2Point == 0) {
             if (p1Point == 1)
@@ -64,20 +79,6 @@ public class TennisGame2 implements TennisGame {
             score = p1Res + "-" + p2Res;
         }
 
-        if (p1Point > p2Point && p2Point >= 3) {
-            score = "Advantage " + player1Name;
-        }
-
-        if (p2Point > p1Point && p1Point >= 3) {
-            score = "Advantage " + player2Name;
-        }
-
-        if (p1Point >= 4 && p2Point >= 0 && (p1Point - p2Point) >= 2) {
-            score = "Win for " + player1Name;
-        }
-        if (p2Point >= 4 && p1Point >= 0 && (p2Point - p1Point) >= 2) {
-            score = "Win for " + player2Name;
-        }
         return score;
     }
 
