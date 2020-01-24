@@ -16,6 +16,7 @@ public class TennisGame2 implements TennisGame {
         if (p1Point == p2Point) {
             return tie();
         }
+        // スモールステップで手が付けられない
         if (p1Point >= 4 && p2Point >= 0 && (p1Point - p2Point) >= 2) {
             return "Win for " + player1Name;
         }
@@ -30,7 +31,6 @@ public class TennisGame2 implements TennisGame {
         if (p2Point > p1Point && p1Point >= 3) {
             return "Advantage " + player2Name;
         }
-
 
         if (p1Point > 0 && p2Point == 0) {
             if (p1Point == 1)
