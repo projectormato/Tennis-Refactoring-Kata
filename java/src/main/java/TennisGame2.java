@@ -35,15 +35,17 @@ public class TennisGame2 implements TennisGame {
         return convetScoreIntToString(p1Point) + "-" + convetScoreIntToString(p2Point);
     }
 
-    private String convetScoreIntToString(int p1Point) {
-        if (p1Point == 0)
-            return "Love";
-        if (p1Point == 1)
-            return "Fifteen";
-        if (p1Point == 2)
-            return "Thirty";
-        else
-            return "Forty";
+    private String convetScoreIntToString(int point) {
+        switch (point) {
+            case 0:
+                return "Love";
+            case 1:
+                return "Fifteen";
+            case 2:
+                return "Thirty";
+            default:
+                return "Forty";
+        }
     }
 
     private String tie() {
