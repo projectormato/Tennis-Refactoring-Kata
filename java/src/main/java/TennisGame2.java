@@ -14,14 +14,8 @@ public class TennisGame2 implements TennisGame {
 
     public String getScore() {
         String score = "";
-        if (P1point == P2point && P1point < 4) {
-            if (P1point == 0)
-                score = "Love";
-            if (P1point == 1)
-                score = "Fifteen";
-            if (P1point == 2)
-                score = "Thirty";
-            score += "-All";
+        if (P1point == P2point && P1point < 3) {
+            return tie();
         }
         if (P1point == P2point && P1point >= 3)
             score = "Deuce";
@@ -86,6 +80,18 @@ public class TennisGame2 implements TennisGame {
         if (P2point >= 4 && P1point >= 0 && (P2point - P1point) >= 2) {
             score = "Win for " + player2Name;
         }
+        return score;
+    }
+
+    private String tie() {
+        String score = "";
+        if (P1point == 0)
+            score = "Love";
+        if (P1point == 1)
+            score = "Fifteen";
+        if (P1point == 2)
+            score = "Thirty";
+        score += "-All";
         return score;
     }
 
