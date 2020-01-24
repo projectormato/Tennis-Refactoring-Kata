@@ -98,14 +98,6 @@ public class TennisGame2 implements TennisGame {
         P2point = score;
     }
 
-    public void P1Score() {
-        P1point++;
-    }
-
-    public void P2Score() {
-        P2point++;
-    }
-
     public void wonPoint(String player) {
     }
 }
